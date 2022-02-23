@@ -13,8 +13,11 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $comics = Comic::paginate(15);
+        $data = ['comics' => $comics];
+
+        return view('comics.index', $data);
     }
 
     /**

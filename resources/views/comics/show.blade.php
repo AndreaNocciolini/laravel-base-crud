@@ -8,7 +8,7 @@
         <li><img src="{{ $comic->photo }}" alt=""></li>
         <li>{{ $comic->editor }}</li>
         <li>{{ $comic->author }}</li>
-        <li>{{ $comic->description }}</li>
         <li>{{ $comic->price }}</li>
+        <li><a href="{{ route('comics.index') }}">Return</a></li>
     </ul>
 @endsection

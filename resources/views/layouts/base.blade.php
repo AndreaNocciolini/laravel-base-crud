@@ -10,7 +10,11 @@
 </head>
 <body>
     
+    @include('comics.partials.header')
+
     @yield('content')
+
+    @include('comics.partials.footer')
 
 </body>
 </html>
