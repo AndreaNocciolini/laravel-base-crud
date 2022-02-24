@@ -10,5 +10,6 @@
         <li>{{ $comic->author }}</li>
         <li>{{ $comic->price }}</li>
         <li><a href="{{ route('comics.index') }}">Return</a></li>
+        <li><a href="{{ route('comics.edit', $comic->id) }}">Edit</a></li>
     </ul>
 @endsection

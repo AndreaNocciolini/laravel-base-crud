@@ -37,6 +37,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-warning"><a class="text-decoration-none text-dark" href="{{ route('comics.index') }}">Home</a></button>
                 </form>
             </div>
         </div>
