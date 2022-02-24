@@ -12,9 +12,9 @@
         <li><a href="{{ route('comics.index') }}">Return</a></li>
         <li><a href="{{ route('comics.edit', $comic->id) }}">Edit</a></li>
     </ul> --}}
-    
-    <div class="row">
-        <div class="col">
+
+    <div class="row w-100">
+        <div class="col p-3 d-flex justify-content-center align-items-center w-100">
             <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
                 <div class="card-header">Header</div>
                 <div class="card-body">
