@@ -13,7 +13,7 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $comics = Comic::paginate(15);
         $data = ['comics' => $comics];
 
@@ -39,7 +39,7 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $dataArray = $request->all();
-        
+
         $comic = new Comic();
         $comic->title = $dataArray['title'];
         $comic->original_title = $dataArray['original_title'];
@@ -66,7 +66,7 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        $data = [ 'comic' => $comic ];
+        $data = ['comic' => $comic];
         return view('comics.show', $data);
     }
 
@@ -78,7 +78,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', ['comic' => $comic]);
     }
 
     /**
@@ -90,7 +90,14 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+        $updated = $comic->update($data);
+
+        if (!$updated) {
+            dd('Update non riuscito');
+        }
+
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**
