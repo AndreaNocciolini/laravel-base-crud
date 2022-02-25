@@ -6,7 +6,17 @@ use App\Comic;
 use Illuminate\Http\Request;
 
 class ComicController extends Controller
-{
+{   
+
+    protected $validation = [
+        'title'=> 'required|max:120',
+        'original_title'=> 'nullable|max:120',
+        'volume_n'=> 'required|',
+        'photo'=> 'required|string',
+        'editor'=> 'required|string |max:50',
+        'author'=> 'required|string |max:50',
+        'price'=> 'required|',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +47,8 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $validateData = $request->validate($this->validation);
         $dataArray = $request->all();
 
         $comic = new Comic();
@@ -89,7 +100,8 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Comic $comic)
-    {
+    {   
+        $validateData = $request->validate($this->validation);
         $data = $request->all();
         $updated = $comic->update($data);
 
