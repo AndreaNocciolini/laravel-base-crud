@@ -25,8 +25,13 @@
                     <h5 class="card-title">{{ $comic->editor }}</h5>
                     <h5 class="card-title">{{ $comic->author }}</h5>
                     <h5 class="card-title">{{ $comic->price }}</h5>
-                    <a class="card-title text-decoration-none text-white btn btn-danger" href="{{ route('comics.index') }}">Return</a>
+                    <a class="card-title text-decoration-none text-white btn btn-success" href="{{ route('comics.index') }}">Home</a>
                     <a class="card-title text-decoration-none text-dark btn btn-warning" href="{{ route('comics.edit', $comic->id) }}">Edit</a>
+                    <form class="card-title" action="{{ route('comics.destroy', $comic->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <input class="btn btn-danger" type="submit" value="Delete">
+                    </form>
                 </div>
             </div>
         </div>

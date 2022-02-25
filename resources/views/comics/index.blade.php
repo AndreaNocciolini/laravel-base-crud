@@ -23,8 +23,13 @@
                                 <li class="list-group-item">{{ $comic->author }}</li>
                                 <li class="list-group-item">{{ $comic->price }}&euro;</li>
                             </ul>
-                            <div class="card-body">
-                                <a href="{{ route('comics.show', $comic) }}" class="card-link">Comic link</a>
+                            <div class="card-title d-flex align-items-center justify-content-around p-2">
+                                <a href="{{ route('comics.show', $comic) }}" class="btn btn-primary">Comic link</a>
+                                <form action="{{ route('comics.destroy', $comic->id) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input class="btn btn-danger" type="submit" value="Delete">
+                                </form>
                             </div>
                         </div>
                     </div>
